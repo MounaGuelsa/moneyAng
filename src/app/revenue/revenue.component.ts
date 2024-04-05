@@ -16,7 +16,9 @@ export class RevenueComponent implements OnInit {
   showUpdateForm: boolean = false;
   revenueForm: FormGroup = this.formBuilder.group({
     nomRevenue: ['', Validators.required],
-    montant: ['', Validators.required],
+    montant: ['', Validators.required
+      
+    ],
     date: ['', Validators.required],
     utilisateurId: ['', Validators.required],
     type: ['', Validators.required]
