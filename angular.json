@@ -131,10 +131,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "moneyAng:build:production"
+              "buildTarget": "moneyAng:build:production"
             },
             "development": {
-              "browserTarget": "moneyAng:build:development"
+              "buildTarget": "moneyAng:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -142,7 +142,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "moneyAng:build"
+            "buildTarget": "moneyAng:build"
           }
         },
         "test": {
