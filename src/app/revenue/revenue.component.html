@@ -1,0 +1,147 @@
+<main class="main-content">
+  <div class="contents">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-main">
+            <h4 class="text-capitalize breadcrumb-title">Revenues</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mb-30">
+          <div class="support-ticket-system support-ticket-system--search">
+            <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
+              <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
+                  <h4 class="text-capitalize fw-500 breadcrumb-title">Revenue</h4>
+                </div>
+              </div>
+              <div class="action-btn">
+                <button class="btn btn-primary" (click)="toggleForm()">
+                  Ajouter Revenue
+                 
+                </button>
+              </div>
+            </div>
+            <!-- Formulaire d'ajout de revenu -->
+            <div *ngIf="showForm">
+              <form [formGroup]="revenueForm" (ngSubmit)="ajouterRevenue()">
+                <div class="form-group">
+                  <label for="revenueName">Nom du revenu</label>
+                  <input type="text" id="revenueName" class="form-control" formControlName="nomRevenue" required>
+                  <div *ngIf="revenueForm.get('nomRevenue')?.invalid && (revenueForm.get('nomRevenue')?.dirty || revenueForm.get('nomRevenue')?.touched)"
+                    class="text-danger">
+                    Nom du revenu est requis.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="revenueAmount">Montant</label>
+                  <input type="number" id="revenueAmount" class="form-control" formControlName="montant" required>
+                  <div *ngIf="revenueForm.get('montant')?.invalid && (revenueForm.get('montant')?.dirty || revenueForm.get('montant')?.touched)"
+                    class="text-danger">
+                    Montant est requis.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="revenueDate">Date</label>
+                  <input type="date" id="revenueDate" class="form-control" formControlName="date" required>
+                  <div *ngIf="revenueForm.get('date')?.invalid && (revenueForm.get('date')?.dirty || revenueForm.get('date')?.touched)"
+                    class="text-danger">
+                    Date est requise.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="revenueType">Type de revenu</label>
+                  <select id="revenueType" class="form-control" formControlName="type" required>
+                    <option value="" disabled selected>Choisissez un type de revenu</option>
+                    <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                  </select>
+                  <div *ngIf="revenueForm.get('type')?.invalid && (revenueForm.get('type')?.dirty || revenueForm.get('type')?.touched)"
+                    class="text-danger">
+                    Type de revenu est requis.
+                  </div>
+                </div>
+                <button class="btn btn-primary" (click)="toggleForm()">
+                  {{ showForm ? 'Modifier' : 'Ajouter' }}
+                </button>
+              </form>
+              
+              
+            </div>
+            <!-- Tableau des revenus -->
+            <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
+              <div class="table-responsive">
+                <table class="table mb-0 table-borderless">
+                  <thead>
+                    <tr class="userDatatable-header">
+                      <th><span class="userDatatable-title">Nom Revenue</span></th>
+                      <th><span class="userDatatable-title">Montant</span></th>
+                      <th><span class="userDatatable-title">Date</span></th>
+                      <th><span class="userDatatable-title">Type</span></th>
+                      <th scope="col" class="text-end">
+                        <span class="userDatatable-title ">Actions</span>
+                     </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let revenue of revenues">
+                      <td>{{ revenue.nomRevenue }}</td>
+                      <td>{{ revenue.montant }} Dh</td>
+                      <td>{{ revenue.date }}</td>
+                      <td>{{ revenue.type }} </td>
+                      <td>
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+                          <li>
+                            <a href="#" class="edit" (click)="toggleForm(revenue)">
+                              <i class="uil uil-edit"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" class="remove" (click)="showConfirmationModal(revenue)">
+                              <i class="uil uil-trash-alt"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </td>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="overlayer">
+  <div class="loader-overlay">
+    <div class="dm-spin-dots spin-lg">
+      <span class="spin-dot badge-dot dot-primary"></span>
+      <span class="spin-dot badge-dot dot-primary"></span>
+      <span class="spin-dot badge-dot dot-primary"></span>
+      <span class="spin-dot badge-dot dot-primary"></span>
+    </div>
+  </div>
+</div>
+<div class="overlay-dark-sidebar"></div>
+<div class="customizer-overlay"></div>
+<div id="confirmationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Confirmation de suppression</h5>
+        <button type="button" class="btn-close" (click)="hideConfirmationModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer ce revenu ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="hideConfirmationModal()">Annuler</button>
+        <button type="button" class="btn btn-danger" (click)="supprimerRevenue(confirmDeleteId)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
