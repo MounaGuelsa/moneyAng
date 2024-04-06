@@ -44,46 +44,83 @@
     --color-footer-link-hover: #{$white};
 
     // Main Color
-    --color-primary: #8231D3;
-	--color-secondary: #5840FF;
-	--color-success: #01B81A;
-	--color-info: #00AAFF;
-	--color-warning: #FA8B0C;
-	--color-danger: #FF0F0F;
-	--color-dark: #0A0A0A;
+    // --color-primary: #8231D3;
+	// --color-secondary: #5840FF;
+	// --color-success: #01B81A;
+	// --color-info: #00AAFF;
+	// --color-warning: #FA8B0C;
+	// --color-danger: #FF0F0F;
+	// --color-dark: #0A0A0A;
 
-    --color-infos:#00E4EC;
-    --color-warnings:#FFBB00;
-    --color-dangers: #FF0F0F;
-    --color-purple:#A722F6;
+    // --color-infos:#00E4EC;
+    // --color-warnings:#FFBB00;
+    // --color-dangers: #FF0F0F;
+    // --color-purple:#A722F6;
 
-     //Main Bg color
-     --bg-primary: #8231D3;
-     --bg-secondary: #5840FF;
-     --bg-success: #01B81A;
-     --bg-info: #00AAFF;
-     --bg-warning: #FA8B0C;
-     --bg-danger: #FF0F0F;
-     --bg-dark: rgb(10, 10, 10);
+    //  //Main Bg color
+    //  --bg-primary: #8231D3;
+    //  --bg-secondary: #5840FF;
+    //  --bg-success: #01B81A;
+    //  --bg-info: #00AAFF;
+    //  --bg-warning: #FA8B0C;
+    //  --bg-danger: #FF0F0F;
+    //  --bg-dark: rgb(10, 10, 10);
 
-    // Hover Color
-    --bg-primary-hover: #6726A8;
-	--bg-secondary-hover: #3520C8;
-	--bg-success-hover: #0D811D;
-	--bg-info-hover: #0787C7;
-	--bg-warning-hover: #D9790A;
-	--bg-danger-hover: #CB0000;
-	--bg-dark-hover: #272525;
-	--bg-gray-hover: #585858;
+    // // Hover Color
+    // --bg-primary-hover: #6726A8;
+	// --bg-secondary-hover: #3520C8;
+	// --bg-success-hover: #0D811D;
+	// --bg-info-hover: #0787C7;
+	// --bg-warning-hover: #D9790A;
+	// --bg-danger-hover: #CB0000;
+	// --bg-dark-hover: #272525;
+	// --bg-gray-hover: #585858;
 
-    --color-primary-rgba: 130, 49, 211;
-	--color-secondary-rgba: 88, 64, 255;
-	--color-success-rgba: 1, 184, 26;
-	--color-info-rgba: 0, 170, 255;
-	--color-warning-rgba: 250, 139, 12;
-	--color-danger-rgba: 255, 15, 15;
-	--color-dark-rgba: 10, 10, 10;
-    --color-primary-rgba-shadow: rgba(var(--color-primary-rgba), 0.20);
+    // --color-primary-rgba: 130, 49, 211;
+	// --color-secondary-rgba: 88, 64, 255;
+	// --color-success-rgba: 1, 184, 26;
+	// --color-info-rgba: 0, 170, 255;
+	// --color-warning-rgba: 250, 139, 12;
+	// --color-danger-rgba: 255, 15, 15;
+	// --color-dark-rgba: 10, 10, 10;
+    // --color-primary-rgba-shadow: rgba(var(--color-primary-rgba), 0.20);
+/* Couleurs principales */
+--color-primary: #D3B887; /* Beige doré */
+--color-secondary: #BFA78E; /* Marron clair */
+--color-success: #C4A276; /* Brun clair */
+--color-info: #D0B0A2; /* Beige rosé */
+--color-warning: #B58E7D; /* Brun rosé */
+--color-danger: #AF947A; /* Brun grisâtre */
+--color-dark: #564135; /* Marron foncé */
+
+/* Couleurs de fond principales */
+--bg-primary: #D3B887; /* Beige doré */
+--bg-secondary: #BFA78E; /* Marron clair */
+--bg-success: #C4A276; /* Brun clair */
+--bg-info: #D0B0A2; /* Beige rosé */
+--bg-warning: #B58E7D; /* Brun rosé */
+--bg-danger: #AF947A; /* Brun grisâtre */
+--bg-dark: #564135; /* Marron foncé */
+
+/* Couleurs de survol */
+--bg-primary-hover: #C4A276; /* Brun clair */
+--bg-secondary-hover: #A58B76; /* Brun moyen */
+--bg-success-hover: #BFA78E; /* Marron clair */
+--bg-info-hover: #C8B49E; /* Beige rosé clair */
+--bg-warning-hover: #A67C65; /* Brun rosé foncé */
+--bg-danger-hover: #9F846C; /* Brun grisâtre foncé */
+--bg-dark-hover: #493929; /* Marron foncé */
+--bg-gray-hover: #A09D9B; /* Gris beige */
+
+/* Couleurs en rgba */
+--color-primary-rgba: 211, 184, 135; /* Beige doré */
+--color-secondary-rgba: 191, 167, 142; /* Marron clair */
+--color-success-rgba: 196, 162, 118; /* Brun clair */
+--color-info-rgba: 208, 176, 162; /* Beige rosé */
+--color-warning-rgba: 181, 142, 125; /* Brun rosé */
+--color-danger-rgba: 175, 148, 122; /* Brun grisâtre */
+--color-dark-rgba: 86, 65, 53; /* Marron foncé */
+--color-primary-rgba-shadow: rgba(var(--color-primary-rgba), 0.20);
 
     //Side Color
     --color-white: #fff;

@@ -36,8 +36,8 @@ export class RevenueService {
       );
   }
 
-  modifierRevenue(id: number, revenue: Revenue): Observable<Revenue> {
-    const url = `${this.apiUrl}/${id}`;
+  modifierRevenue( revenue: Revenue): Observable<Revenue> {
+    const url = `${this.apiUrl}/${revenue.idRevenue}`;
     return this.http.put<Revenue>(url, revenue)
       .pipe(
         catchError(this.handleError)

@@ -1,8 +1,8 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpErrorResponse } from "@angular/common/http";
+import { Revenue } from './Revenue';
 import { RevenueService } from './revenue.service';
-import { Revenue } from './Revenue'; // Assurez-vous d'importer correctement votre interface Revenue
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-revenue',
@@ -10,26 +10,15 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./revenue.component.css']
 })
 export class RevenueComponent implements OnInit {
-  confirmDeleteId: number | undefined;
   revenues: Revenue[] = [];
   showForm: boolean = false;
   showUpdateForm: boolean = false;
   revenueForm: FormGroup = this.formBuilder.group({
     nomRevenue: ['', Validators.required],
-    montant: ['', Validators.required
-      
-    ],
-    date: ['', Validators.required],
-    utilisateurId: ['', Validators.required],
-    type: ['', Validators.required]
-  });
-  updateRevenueForm: FormGroup = this.formBuilder.group({
-    nomRevenue: ['', Validators.required],
     montant: ['', Validators.required],
     date: ['', Validators.required],
     type: ['', Validators.required]
   });
-  selectedRevenue: Revenue | undefined;
   types = [
     'SALAIRE',
     'REVENU_LOCATIF',
@@ -43,30 +32,19 @@ export class RevenueComponent implements OnInit {
     'INVESTISSEMENTS_IMMOBILIERS',
     'AUTRES'
   ];
+  updateRevenueForm: FormGroup = this.formBuilder.group({
+    nomRevenue: ['', Validators.required],
+    montant: ['', Validators.required],
+    date: ['', Validators.required],
+    type: ['', Validators.required]
+  });
+  selectedRevenue: Revenue | undefined;
 
-  constructor(private revenueService: RevenueService, private formBuilder: FormBuilder) { }
+  constructor(private revenueService: RevenueService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.obtenirRevenues();
   }
-  
-
-  showConfirmationModal(revenue: Revenue): void {
-    this.confirmDeleteId = revenue.idRevenue;
-    const confirmationModal = document.getElementById('confirmationModal');
-    if (confirmationModal) {
-      confirmationModal.classList.add('show'); // Afficher la boîte de dialogue
-    }
-  }
-
-  hideConfirmationModal(): void {
-    this.confirmDeleteId = undefined;
-    const confirmationModal = document.getElementById('confirmationModal');
-    if (confirmationModal) {
-      confirmationModal.classList.remove('show'); // Masquer la boîte de dialogue
-    }
-  }
-
 
   public obtenirRevenues() {
     this.revenueService.obtenirRevenues().subscribe(
@@ -86,7 +64,6 @@ export class RevenueComponent implements OnInit {
       this.showUpdateForm = true;
       this.selectedRevenue = revenue;
       this.updateRevenueForm.patchValue({
-        idRevenue:revenue.idRevenue,
         nomRevenue: revenue.nomRevenue,
         montant: revenue.montant,
         date: revenue.date,
@@ -100,18 +77,16 @@ export class RevenueComponent implements OnInit {
   }
 
   public ajouterRevenue(): void {
-  
-     
-      this.revenueService.ajouterRevenue(this.revenueForm.value).subscribe(
-        (response: Revenue) => {
-          console.log(response);
-          this.obtenirRevenues();
-          this.toggleForm();
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
+    this.revenueService.ajouterRevenue(this.revenueForm.value).subscribe(
+      (response: Revenue) => {
+        console.log(response);
+        this.obtenirRevenues();
+        this.toggleForm();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   public modifierRevenue(): void {
@@ -121,7 +96,7 @@ export class RevenueComponent implements OnInit {
         ...this.updateRevenueForm.value,
       };
 
-      this.revenueService.modifierRevenue(this.selectedRevenue.idRevenue, updatedRevenue).subscribe(
+      this.revenueService.modifierRevenue(updatedRevenue).subscribe(
         (response: Revenue) => {
           console.log(response);
           this.obtenirRevenues();
@@ -135,21 +110,14 @@ export class RevenueComponent implements OnInit {
   }
 
   public supprimerRevenue(idRevenue: number): void {
-    if (this.confirmDeleteId !== undefined) {
-       this.revenueService.supprimerRevenue(this.confirmDeleteId!).subscribe(
-         () => {
-           console.log("Revenue supprimé avec succès !");
-           this.obtenirRevenues();
-           this.confirmDeleteId = undefined;
-           this.hideConfirmationModal();
-         },
-         (error: HttpErrorResponse) => {
-           alert(error.message);
-         }
-       );
-    }
-   }
- 
-  
-  
+    this.revenueService.supprimerRevenue(idRevenue).subscribe(
+      () => {
+        console.log("Revenue deleted successfully!");
+        this.obtenirRevenues();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }  
 }

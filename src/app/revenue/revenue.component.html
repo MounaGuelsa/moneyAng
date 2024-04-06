@@ -20,7 +20,6 @@
               <div class="action-btn">
                 <button class="btn btn-primary" (click)="toggleForm()">
                   Ajouter Revenue
-                 
                 </button>
               </div>
             </div>
@@ -62,12 +61,8 @@
                     Type de revenu est requis.
                   </div>
                 </div>
-                <button class="btn btn-primary" (click)="toggleForm()">
-                  {{ showForm ? 'Modifier' : 'Ajouter' }}
-                </button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
               </form>
-              
-              
             </div>
             <!-- Tableau des revenus -->
             <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
@@ -81,30 +76,29 @@
                       <th><span class="userDatatable-title">Type</span></th>
                       <th scope="col" class="text-end">
                         <span class="userDatatable-title ">Actions</span>
-                     </th>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let revenue of revenues">
                       <td>{{ revenue.nomRevenue }}</td>
-                      <td>{{ revenue.montant }} Dh</td>
+                      <td>{{ revenue.montant }}</td>
                       <td>{{ revenue.date }}</td>
-                      <td>{{ revenue.type }} </td>
+                      <td>{{ revenue.type }}</td>
                       <td>
                         <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
                           <li>
-                            <a href="#" class="edit" (click)="toggleForm(revenue)">
+                            <a class="edit" (click)="toggleForm(revenue)">
                               <i class="uil uil-edit"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="#" class="remove" (click)="showConfirmationModal(revenue)">
+                            <a href="#" class="remove" (click)="supprimerRevenue(revenue.idRevenue)">
                               <i class="uil uil-trash-alt"></i>
                             </a>
                           </li>
                         </ul>
                       </td>
-                      
                     </tr>
                   </tbody>
                 </table>
@@ -128,20 +122,3 @@
 </div>
 <div class="overlay-dark-sidebar"></div>
 <div class="customizer-overlay"></div>
-<div id="confirmationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirmationModalLabel">Confirmation de suppression</h5>
-        <button type="button" class="btn-close" (click)="hideConfirmationModal()" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Êtes-vous sûr de vouloir supprimer ce revenu ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="hideConfirmationModal()">Annuler</button>
-        <!-- <button type="button" class="btn btn-danger" (click)="supprimerRevenue(confirmDeleteId)">Supprimer</button> -->
-      </div>
-    </div>
-  </div>
-</div>
