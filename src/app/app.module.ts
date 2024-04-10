@@ -6,7 +6,9 @@ import { RevenueComponent } from './revenue/revenue.component';
 import {HttpClientModule} from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AjoutRevenueComponent } from './ajout-revenue/ajout-revenue.component';
+import { CommonModule } from '@angular/common';
+import { CategorieComponent } from './categorie/categorie.component';
+import { RapportComponent } from './rapport/rapport.component';
 
 
 @NgModule({
@@ -14,14 +16,17 @@ import { AjoutRevenueComponent } from './ajout-revenue/ajout-revenue.component';
     AppComponent,
     RevenueComponent,
     NavbarComponent,
-    AjoutRevenueComponent
+    CategorieComponent,
+    RapportComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

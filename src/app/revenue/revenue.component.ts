@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from "@angular/common/http";
 import { Revenue } from './Revenue';
 import { RevenueService } from './revenue.service';
-
+declare var $: any;
 @Component({
   selector: 'app-revenue',
   templateUrl: './revenue.component.html',
@@ -11,6 +11,7 @@ import { RevenueService } from './revenue.service';
 })
 export class RevenueComponent implements OnInit {
   revenues: Revenue[] = [];
+  
   showForm: boolean = false;
   showUpdateForm: boolean = false;
   revenueForm: FormGroup = this.formBuilder.group({
@@ -56,6 +57,7 @@ export class RevenueComponent implements OnInit {
       }
     );
   }
+
 
   public toggleForm(revenue?: Revenue): void {
     this.showForm = !this.showForm;
@@ -108,7 +110,18 @@ export class RevenueComponent implements OnInit {
       );
     }
   }
+  showConfirmationModal(revenueId: number): void {
+    // Afficher le modal de confirmation
+    $('#confirmationModal').modal('show');
 
+    // Capturer le clic sur le bouton de confirmation
+    $('#confirmDeleteBtn').click(() => {
+        // Exécuter la suppression
+        this.supprimerRevenue(revenueId);
+        // Cacher le modal de confirmation
+        $('#confirmationModal').modal('hide');
+    });
+}
   public supprimerRevenue(idRevenue: number): void {
     this.revenueService.supprimerRevenue(idRevenue).subscribe(
       () => {

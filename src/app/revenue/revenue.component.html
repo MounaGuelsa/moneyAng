@@ -93,9 +93,9 @@
                             </a>
                           </li>
                           <li>
-                            <a href="#" class="remove" (click)="supprimerRevenue(revenue.idRevenue)">
+                            <a href="#" class="remove" (click)="showConfirmationModal(revenue.idRevenue)">
                               <i class="uil uil-trash-alt"></i>
-                            </a>
+                          </a>
                           </li>
                         </ul>
                       </td>
@@ -122,3 +122,22 @@
 </div>
 <div class="overlay-dark-sidebar"></div>
 <div class="customizer-overlay"></div>
+<div class="modal-basic modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content modal-bg-white">
+          <div class="modal-header">
+              <h6 class="modal-title">Confirmation de suppression</h6>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <img src="assets/img/svg/x.svg" alt="x" class="svg">
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>Êtes-vous sûr de vouloir supprimer ce revenu?</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger btn-sm" id="confirmDeleteBtn">Supprimer</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Annuler</button>
+          </div>
+      </div>
+  </div>
+</div>

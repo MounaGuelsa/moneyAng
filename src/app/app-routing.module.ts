@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RevenueComponent } from './revenue/revenue.component';
-import { AjoutRevenueComponent } from './ajout-revenue/ajout-revenue.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DepenseComponent } from './depense/depense.component';
+import { CategorieComponent } from './categorie/categorie.component';
+import { RapportComponent } from './rapport/rapport.component';
+
 
 const routes: Routes = [
   {path:'revenues',component:RevenueComponent},
-  {path:'ajouterRevenue',component:AjoutRevenueComponent}
+  {path:'dashboard',component:DashboardComponent},
+  {path:'depenses',component:DepenseComponent},
+  {path:'rapports',component:RapportComponent},
+  {path:'categories',component:CategorieComponent}
 ];
 
 @NgModule({

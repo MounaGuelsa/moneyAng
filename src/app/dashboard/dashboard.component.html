@@ -1,0 +1,48 @@
+<main class="main-content">
+    <div class="contents">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+            <!-- Dans le fichier HTML de votre composant de tableau de bord -->
+            <div class="card border-0">
+                <div class="card-header">
+                    <h6>Sales Overview</h6>
+                </div>
+                <div class="card-body pt-20 pb-30">
+                    <div class="device-pieChart-wrap position-relative">
+                        <div class="dashboard">
+                            <h2>Tableau de bord des revenus</h2>
+                            <div *ngFor="let revenue of revenues">
+                               {{ revenue.montant }}
+                            </div>
+                           </div>
+                    </div>
+                    <div class="session-wrap session-wrap--top--4">
+                        <div class="session-single">
+                            <div class="chart-label new">
+                                <span class="label-dot dot-primary"></span>
+                                Target
+                            </div>
+                        </div>
+                        <div class="session-single">
+                            <div class="chart-label new">
+                                <span class="label-dot dot-info"></span>
+                                In Progress
+                            </div>
+                        </div>
+                        <div class="session-single">
+                            <div class="chart-label new">
+                                <span class="label-dot dot-warning"></span>
+                                Completed
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
