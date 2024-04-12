@@ -1,6 +1,6 @@
 export interface Rapport {
     idRapport: number;
-    moisAnnee:String,
+    moisAnnee:Date,
     depenses: number;
     revenues: number;
     balance: number;

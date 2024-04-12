@@ -1,5 +1,5 @@
 export interface Statistique {
     depenses: number;
-    revenues: number;
+    revenus: number;
     balance: number;
 }
