@@ -1,47 +1,13 @@
-<main class="main-content">
-    <div class="contents">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-main">
-                        <h4 class="text-capitalize breadcrumb-title">Catégories</h4>
-                    </div>
-                </div>
+<div class="card mt-25">
+    <div class="card-body">
+        <div class="application-task d-flex align-items-center mb-25" *ngFor="let categorie of categories">
+            <div class="application-task-icon wh-60 bg-opacity-secondary content-center">
+                <img class="svg wh-25" [src]="categorie.icone" alt="img">
             </div>
-            <div class="row">
-                <div class="col-12 mb-30">
-                    <div class="support-ticket-system support-ticket-system--search">
-                        <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
-                            <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                                <div
-                                    class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                                    <h4 class="text-capitalize fw-500 breadcrumb-title">Catégorie</h4>
-                                </div>
-                            </div>
-
-                            <!-- Tableau des revenus -->
-                            <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
-                                <div class="table-responsive">
-                                    <table class="table mb-0 table-borderless">
-                                        <thead>
-                                            <tr class="userDatatable-header">
-                                                <th><span class="userDatatable-title">Nom Catégorie</span></th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let cat of categories">
-                                                <td>{{ cat.nom }}</td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="application-task-content">
+                <h4>{{ categorie.nom }}</h4>
+               
             </div>
         </div>
-        </div>
-</main>
+    </div>
+</div>

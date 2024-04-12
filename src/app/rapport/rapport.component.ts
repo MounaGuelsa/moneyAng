@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Statistique } from './Statistique';
 import { Rapport } from './Rapport';
 import { RapportService } from './rapport.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
  selector: 'app-rapport',
@@ -12,7 +13,6 @@ export class RapportComponent implements OnInit {
   statistiques: Statistique | null = null;
   rapports: Rapport[] = [];
 
-
  constructor(private rapportService: RapportService) { }
 
  ngOnInit(): void {
@@ -22,10 +22,10 @@ export class RapportComponent implements OnInit {
 
  obtenirStatistics(): void {
     this.rapportService.obtenirStatistics().subscribe(
-      data => {
+      (data: Statistique) => {
         this.statistiques = data;
       },
-      error => {
+      (error: HttpErrorResponse) => {
         console.error('Error fetching statistics:', error);
       }
     );
@@ -36,7 +36,7 @@ export class RapportComponent implements OnInit {
       () => {
         this.obtenirListeRapports(); // Recharger les rapports après la génération
       },
-      error => {
+      (error: HttpErrorResponse) => {
         console.error('Error generating reports:', error);
       }
     );
@@ -44,32 +44,45 @@ export class RapportComponent implements OnInit {
 
  obtenirListeRapports(): void {
     this.rapportService.obtenirListeRapports().subscribe(
-      data => {
-        this.rapports = data; 
+      (data: Rapport[]) => {
+        this.rapports = data;
       },
-      error => {
+      (error: HttpErrorResponse) => {
         console.error('Error fetching reports:', error);
       }
     );
  }
 
+ confirmSupprimerRapport(id: number): void {
+  // Afficher le modal de confirmation
+  $('#confirmationModal').modal('show');
+
+  // Exécuter la suppression lors de la confirmation
+  $('#confirmDeleteBtn').click(() => {
+      this.supprimerRapport(id);
+      // Cacher le modal de confirmation
+      $('#confirmationModal').modal('hide');
+  });
+}
+
  supprimerRapport(id: number): void {
-    this.rapportService.supprimerRapport(id).subscribe(
-      () => {
-        this.obtenirListeRapports(); // Recharger les rapports après la suppression
-      },
-      error => {
-        console.error('Error deleting report:', error);
-      }
-    );
- }
+  this.rapportService.supprimerRapport(id).subscribe(
+    () => {
+      console.log("Rapport supprimé avec succès !");
+      this.obtenirListeRapports();
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    }
+  );
+ } 
 
  obtenirRapportsParMois(mois: number, annee: number): void {
     this.rapportService.obtenirRapportsParMois(mois, annee).subscribe(
-      data => {
-        this.rapports = data; // Ensure data is an array of Rapport
+      (data: Rapport[]) => {
+        this.rapports = data;
       },
-      error => {
+      (error: HttpErrorResponse) => {
         console.error('Error fetching reports by month:', error);
       }
     );
