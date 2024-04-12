@@ -10,6 +10,9 @@ import { HttpErrorResponse } from '@angular/common/http';
  styleUrls: ['./rapport.component.css']
 })
 export class RapportComponent implements OnInit {
+showConfirmationModal(arg0: number) {
+throw new Error('Method not implemented.');
+}
   statistiques: Statistique | null = null;
   rapports: Rapport[] = [];
 
@@ -53,17 +56,17 @@ export class RapportComponent implements OnInit {
     );
  }
 
- confirmSupprimerRapport(id: number): void {
-  // Afficher le modal de confirmation
-  $('#confirmationModal').modal('show');
+//  confirmSupprimerRapport(id: number): void {
+//   // Afficher le modal de confirmation
+//   $('#confirmationModal').modal('show');
 
-  // Exécuter la suppression lors de la confirmation
-  $('#confirmDeleteBtn').click(() => {
-      this.supprimerRapport(id);
-      // Cacher le modal de confirmation
-      $('#confirmationModal').modal('hide');
-  });
-}
+//   // Exécuter la suppression lors de la confirmation
+//   $('#confirmDeleteBtn').click(() => {
+//       this.supprimerRapport(id);
+//       // Cacher le modal de confirmation
+//       $('#confirmationModal').modal('hide');
+//   });
+// }
 
  supprimerRapport(id: number): void {
   this.rapportService.supprimerRapport(id).subscribe(

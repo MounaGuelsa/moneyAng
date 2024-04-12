@@ -1,12 +1,31 @@
-<div class="card mt-25">
-    <div class="card-body">
-        <div class="application-task d-flex align-items-center mb-25" *ngFor="let categorie of categories">
-            <div class="application-task-icon wh-60 bg-opacity-secondary content-center">
-                <img class="svg wh-25" [src]="categorie.icone" alt="img">
+<div class="contents">
+    <div class="container-fluid">
+        <div class="profile-content mb-50">
+            <div class="breadcrumb-main">
+                <h4 class="text-capitalize breadcrumb-title">Catégories</h4>
             </div>
-            <div class="application-task-content">
-                <h4>{{ categorie.nom }}</h4>
-               
+            <style>
+                .application-task {
+                    width: calc(50% - 15px); /* Pour deux catégories par ligne */
+                    margin-right: 30px; /* Espace entre les catégories */
+                }
+            </style>
+            <div class="card mt-25">
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Boucle pour chaque catégorie -->
+                        <div class="col-md-6" *ngFor="let categorie of categories">
+                            <div class="application-task d-flex align-items-center mb-25">
+                                <div class="application-task-icon wh-60 bg-opacity-secondary content-center">
+                                    <img class="svg wh-25" [src]="categorie.icone" alt="img">
+                                </div>
+                                <div class="application-task-content">
+                                    <h4>{{ categorie.nom }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

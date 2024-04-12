@@ -32,9 +32,10 @@
                     <thead>
                       <tr class="userDatatable-header">
                         <th><span class="userDatatable-title">Catégorie</span></th>
+                        <th><span class="userDatatable-title">Nom catégorie</span></th>
                         <th><span class="userDatatable-title">Montant</span></th>
                         <th><span class="userDatatable-title">Date</span></th>
-                        <th><span class="userDatatable-title">Facture</span></th>
+                        <th><span class="userDatatable-title">Notes</span></th>
                         <th><span class="userDatatable-title">Moyenne de paiement</span></th>
                         <th scope="col" class="text-end">
                           <span class="userDatatable-title ">Actions</span>
@@ -42,20 +43,20 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let revenue of revenues">
-                        <td>{{ revenue.nomRevenue }}</td>
-                        <td>{{ revenue.montant }}</td>
-                        <td>{{ revenue.date }}</td>
-                        <td>{{ revenue.type }}</td>
+                      <tr *ngFor="let depense of depenses">
+                        <td>{{ depense.categorie.nom }}</td>
+                        <td>{{ depense.montant}}</td>
+                        <td>{{ depense.date }}</td>
+                        <td>{{ depense.type }}</td>
                         <td>
                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
                             <li>
-                              <a class="edit" (click)="toggleForm(revenue)">
+                              <a class="edit" (click)="toggleForm(depense)">
                                 <i class="uil uil-edit"></i>
                               </a>
                             </li>
                             <li>
-                              <a href="#" class="remove" (click)="showConfirmationModal(revenue.idRevenue)">
+                              <a href="#" class="remove" (click)="showConfirmationModal(depense.iddepense)">
                                 <i class="uil uil-trash-alt"></i>
                             </a>
                             </li>
@@ -94,7 +95,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Êtes-vous sûr de vouloir supprimer ce revenu?</p>
+                <p>Êtes-vous sûr de vouloir supprimer cette dépense?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" id="confirmDeleteBtn">Supprimer</button>
