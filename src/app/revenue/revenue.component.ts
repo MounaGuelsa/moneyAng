@@ -93,23 +93,27 @@ export class RevenueComponent implements OnInit {
 
   public modifierRevenue(): void {
     if (this.selectedRevenue) {
-      const updatedRevenue: Revenue = {
-        ...this.selectedRevenue,
-        ...this.updateRevenueForm.value,
-      };
-
-      this.revenueService.modifierRevenue(updatedRevenue).subscribe(
-        (response: Revenue) => {
-          console.log(response);
-          this.obtenirRevenues();
-          this.toggleForm(); 
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
+      const updatedRevenueIndex = this.revenues.findIndex(revenue => revenue.idRevenue === this.selectedRevenue?.idRevenue);
+  
+      if (updatedRevenueIndex !== -1) {
+        this.revenues[updatedRevenueIndex] = {
+          ...this.revenues[updatedRevenueIndex],
+          ...this.updateRevenueForm.value,
+        };
+  
+        this.revenueService.modifierRevenue(this.revenues[updatedRevenueIndex]).subscribe(
+          (response: Revenue) => {
+            console.log(response);
+            this.toggleForm(); 
+          },
+          (error: HttpErrorResponse) => {
+            alert(error.message);
+          }
+        );
+      }
     }
   }
+  
   showConfirmationModal(revenueId: number): void {
     // Afficher le modal de confirmation
     $('#confirmationModal').modal('show');

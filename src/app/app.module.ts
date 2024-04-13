@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { CategorieComponent } from './categorie/categorie.component';
 import { RapportComponent } from './rapport/rapport.component';
+import { DepenseComponent } from './depense/depense.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { RapportComponent } from './rapport/rapport.component';
     NavbarComponent,
     CategorieComponent,
     RapportComponent,
+    DepenseComponent
   ],
   imports: [
     BrowserModule,

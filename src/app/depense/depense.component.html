@@ -44,10 +44,15 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let depense of depenses">
+                        <td> <div class="application-task-icon wh-60 bg-opacity-primary content-center">
+                          <img class="svg wh-25" [src]="depense.categorie.icone" alt="img">
+                      </div></td>
                         <td>{{ depense.categorie.nom }}</td>
-                        <td>{{ depense.montant}}</td>
+                        
+                        <td>{{ depense.montant}} Dhs</td>
                         <td>{{ depense.date }}</td>
-                        <td>{{ depense.type }}</td>
+                        <td>{{ depense.moyennePaiement }}</td>
+                        <td>{{ depense.notes }}</td>
                         <td>
                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
                             <li>
@@ -56,7 +61,7 @@
                               </a>
                             </li>
                             <li>
-                              <a href="#" class="remove" (click)="showConfirmationModal(depense.iddepense)">
+                              <a href="#" class="remove" (click)="showConfirmationModal(depense.idDepense)">
                                 <i class="uil uil-trash-alt"></i>
                             </a>
                             </li>
@@ -73,34 +78,5 @@
       </div>
     </div>
   </main>
-  <div id="overlayer">
-    <div class="loader-overlay">
-      <div class="dm-spin-dots spin-lg">
-        <span class="spin-dot badge-dot dot-primary"></span>
-        <span class="spin-dot badge-dot dot-primary"></span>
-        <span class="spin-dot badge-dot dot-primary"></span>
-        <span class="spin-dot badge-dot dot-primary"></span>
-      </div>
-    </div>
-  </div>
-  <div class="overlay-dark-sidebar"></div>
-  <div class="customizer-overlay"></div>
-  <div class="modal-basic modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content modal-bg-white">
-            <div class="modal-header">
-                <h6 class="modal-title">Confirmation de suppression</h6>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <img src="assets/img/svg/x.svg" alt="x" class="svg">
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Êtes-vous sûr de vouloir supprimer cette dépense?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-sm" id="confirmDeleteBtn">Supprimer</button>
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Annuler</button>
-            </div>
-        </div>
-    </div>
-  </div>
+ 
+  
