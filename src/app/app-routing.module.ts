@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepenseComponent } from './depense/depense.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import { RapportComponent } from './rapport/rapport.component';
+import { AjoutDepenseComponent } from './ajout-depense/ajout-depense.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'depenses',component:DepenseComponent},
   {path:'rapports',component:RapportComponent},
-  {path:'categories',component:CategorieComponent}
+  {path:'categories',component:CategorieComponent},
+  {path:'ajoutDepense',component:AjoutDepenseComponent},
 ];
 
 @NgModule({

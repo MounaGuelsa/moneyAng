@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { CategorieComponent } from './categorie/categorie.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { DepenseComponent } from './depense/depense.component';
+import { AjoutDepenseComponent } from './ajout-depense/ajout-depense.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DepenseComponent } from './depense/depense.component';
     NavbarComponent,
     CategorieComponent,
     RapportComponent,
-    DepenseComponent
+    DepenseComponent,
+    AjoutDepenseComponent
   ],
   imports: [
     BrowserModule,
