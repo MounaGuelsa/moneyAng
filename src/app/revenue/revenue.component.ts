@@ -93,26 +93,32 @@ export class RevenueComponent implements OnInit {
 
   public modifierRevenue(): void {
     if (this.selectedRevenue) {
-      const updatedRevenueIndex = this.revenues.findIndex(revenue => revenue.idRevenue === this.selectedRevenue?.idRevenue);
-  
-      if (updatedRevenueIndex !== -1) {
-        this.revenues[updatedRevenueIndex] = {
-          ...this.revenues[updatedRevenueIndex],
-          ...this.updateRevenueForm.value,
-        };
-  
-        this.revenueService.modifierRevenue(this.revenues[updatedRevenueIndex]).subscribe(
-          (response: Revenue) => {
-            console.log(response);
-            this.toggleForm(); 
-          },
-          (error: HttpErrorResponse) => {
-            alert(error.message);
-          }
-        );
-      }
+       // Trouver l'index du revenu à modifier dans le tableau revenues
+       const updatedRevenueIndex = this.revenues.findIndex(revenue => revenue.idRevenue === this.selectedRevenue!.idRevenue);
+   
+       if (updatedRevenueIndex !== -1) {
+         // Mettre à jour l'instance existante dans le tableau revenues avec les nouvelles valeurs
+         this.revenues[updatedRevenueIndex] = {
+           ...this.revenues[updatedRevenueIndex],
+           ...this.updateRevenueForm.value,
+         };
+   
+         // Envoyer la mise à jour au serveur
+         this.revenueService.modifierRevenue(this.revenues[updatedRevenueIndex]).subscribe(
+           (response: Revenue) => {
+             console.log(response);
+             // Après la mise à jour réussie, réinitialiser le formulaire et fermer le formulaire de modification
+             this.toggleForm();
+           },
+           (error: HttpErrorResponse) => {
+             alert(error.message);
+           }
+         );
+       }
     }
-  }
+   }
+   
+  
   
   showConfirmationModal(revenueId: number): void {
     // Afficher le modal de confirmation

@@ -11,6 +11,7 @@ import { CategorieComponent } from './categorie/categorie.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { DepenseComponent } from './depense/depense.component';
 import { AjoutDepenseComponent } from './ajout-depense/ajout-depense.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AjoutDepenseComponent } from './ajout-depense/ajout-depense.component';
     CategorieComponent,
     RapportComponent,
     DepenseComponent,
-    AjoutDepenseComponent
+    AjoutDepenseComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

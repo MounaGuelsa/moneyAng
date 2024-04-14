@@ -5,7 +5,7 @@
 <div *ngIf="showForm" class="row mt-4">
     <div class="col-lg-6 offset-lg-3">
       <h2 class="text-center mb-4">Ajouter Dépense</h2>
-      <form [formGroup]="depenseForm" (ngSubmit)="ajouterDepense()">
+      <form  (ngSubmit)="ajouterDepense()">
         <div class="mb-3">
           <label for="montant" class="form-label">Montant</label>
           <input type="number" class="form-control" id="montant" formControlName="montant" required>

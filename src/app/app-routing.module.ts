@@ -6,6 +6,7 @@ import { DepenseComponent } from './depense/depense.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { AjoutDepenseComponent } from './ajout-depense/ajout-depense.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'rapports',component:RapportComponent},
   {path:'categories',component:CategorieComponent},
   {path:'ajoutDepense',component:AjoutDepenseComponent},
+  {path:'login',component:LoginComponent},
 ];
 
 @NgModule({
