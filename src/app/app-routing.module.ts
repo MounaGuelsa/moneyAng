@@ -7,6 +7,7 @@ import { CategorieComponent } from './categorie/categorie.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { AjoutDepenseComponent } from './ajout-depense/ajout-depense.component';
 import { LoginComponent } from './login/login.component';
+import { AjoutRevenuComponent } from './ajout-revenu/ajout-revenu.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'categories',component:CategorieComponent},
   {path:'ajoutDepense',component:AjoutDepenseComponent},
   {path:'login',component:LoginComponent},
+  {path:'ajoutRevenu',component:AjoutRevenuComponent},
 ];
 
 @NgModule({

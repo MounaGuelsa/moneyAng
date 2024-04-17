@@ -89,79 +89,65 @@
                               </div>
                            </div>
                         </div>
-                     </div>
-                     <div class="container-fluid">
+                    
                         <div class="row">
-                           <div class="col-lg-12">
-                              <div
-                                 class="userDatatable orderDatatable sellerDatatable global-shadow mb-30 py-30 px-sm-30 px-20 radius-xl w-100">
-                                 <div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
-                                 </div>
-                                 <div class="table-responsive">
-                                    <table class="table mb-0 table-borderless border-0">
-                                       <thead>
-                                          <tr class="userDatatable-header">
-
-                                             <th scope="col">
-                                                <span class="userDatatable-title">Mois</span>
-                                             </th>
-                                             <th scope="col">
-                                                <span class="userDatatable-title">Revenus</span>
-                                             </th>
-                                             <th scope="col">
-                                                <span class="userDatatable-title">Dépenses </span>
-                                             </th>
-                                             <th scope="col">
-                                                <span class="userDatatable-title float-end">balance </span>
-                                             </th>
-                                             <th scope="col" class="text-end">
-                                                <span class="userDatatable-title ">Actions</span>
-                                             </th>
-                                          </tr>
-                                       </thead>
-                                       <tbody>
-                                          <tr *ngFor="let rapport of rapports">
-
-                                             <td>
-                                                <div class="orderDatatable-title">
-                                                   {{rapport.moisAnnee}}
-                                                </div>
-                                             </td>
-                                             <td>
-                                                <div class="orderDatatable-title">
-                                                   {{rapport.revenues}}
-                                                </div>
-                                             </td>
-                                             <td>
-                                                <div class="orderDatatable-title float-end">
-                                                   {{rapport.depenses}}
-                                                </div>
-                                             </td>
-                                             <td>
-                                                <div class="orderDatatable-title float-end">
-                                                   {{rapport.balance}}
-                                                </div>
-                                             </td>
-                                             <td>
-                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
-
-                                                   <li>
-                                                      <a href="#" class="remove" (click)="showConfirmationModal(rapport.idRapport)">
-                                                         <i class="uil uil-trash-alt"></i>
-                                                     </a>
-                                                   </li>
-                                                </ul>
-                                             </td>
-                                          </tr>
-                                       </tbody>
-                                    </table>
-                                 </div>
-                              </div>
-                           </div>
+                            <div class="col-lg-12">
+                                <div class="userDatatable orderDatatable sellerDatatable global-shadow mb-30 py-30 px-sm-30 px-20 radius-xl w-100">
+                                    <div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
+                                        <!-- Additional content -->
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table mb-0 table-borderless border-0">
+                                            <thead>
+                                                <tr class="userDatatable-header">
+                                                    <th scope="col">
+                                                        <span class="userDatatable-title">Mois</span>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <span class="userDatatable-title">Revenus</span>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <span class="userDatatable-title">Dépenses</span>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <span class="userDatatable-title float-end">Balance</span>
+                                                    </th>
+                                                    <th scope="col" class="text-end">
+                                                        <span class="userDatatable-title">Actions</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let rapport of rapports">
+                                                   <td>
+                                                      <div class="orderDatatable-title">{{ rapport.moisAnnee | date: 'MMMM yyyy' }}</div>
+                                                  </td>
+                                                    <td>
+                                                        <div class="orderDatatable-title">{{ rapport.revenus }}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="orderDatatable-title float-end">{{ rapport.depenses }}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="orderDatatable-title float-end">{{ rapport.balance }}</div>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+                                                            <li>
+                                                                <a href="#" class="remove" (click)="showConfirmationModal(rapport.idRapport)">
+                                                                    <i class="uil uil-trash-alt"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-
-                     </div>
+                    </div>
                   </div>
                </div>
             </div>

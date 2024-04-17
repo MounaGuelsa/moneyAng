@@ -12,6 +12,7 @@ import { RapportComponent } from './rapport/rapport.component';
 import { DepenseComponent } from './depense/depense.component';
 import { AjoutDepenseComponent } from './ajout-depense/ajout-depense.component';
 import { LoginComponent } from './login/login.component';
+import { AjoutRevenuComponent } from './ajout-revenu/ajout-revenu.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     RapportComponent,
     DepenseComponent,
     AjoutDepenseComponent,
-    LoginComponent
+    LoginComponent,
+    AjoutRevenuComponent
   ],
   imports: [
     BrowserModule,

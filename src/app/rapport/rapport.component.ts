@@ -29,7 +29,7 @@ throw new Error('Method not implemented.');
         this.statistiques = data;
       },
       (error: HttpErrorResponse) => {
-        console.error('Error fetching statistics:', error);
+        console.error('Erreur lors de la récupération des statistiques:', error);
       }
     );
  }
@@ -37,10 +37,10 @@ throw new Error('Method not implemented.');
  generateRapports(): void {
     this.rapportService.generateRapports().subscribe(
       () => {
-        this.obtenirListeRapports(); // Recharger les rapports après la génération
+        this.obtenirListeRapports();
       },
       (error: HttpErrorResponse) => {
-        console.error('Error generating reports:', error);
+        console.error('Erruer lors de la génération des rapports :', error);
       }
     );
  }
@@ -51,7 +51,7 @@ throw new Error('Method not implemented.');
         this.rapports = data;
       },
       (error: HttpErrorResponse) => {
-        console.error('Error fetching reports:', error);
+        console.error('Erruer lors de la récupération des rapports ::', error);
       }
     );
  }
